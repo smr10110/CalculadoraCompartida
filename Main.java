@@ -7,14 +7,14 @@ public class Main {
 
         while (true) {
             System.out.println("Seleccione una opción:");
-            System.out.println("1. Calcular ecuación de una recta");
-            System.out.println("2. Resolver sistema de ecuaciones lineales");
-            System.out.println("3. Salir");
+            System.out.println("4. Calcular ecuación de una recta");
+            System.out.println("5. Resolver sistema de ecuaciones lineales");
+            System.out.println("6. Salir");
 
             int opcion = scanner.nextInt();
 
             switch (opcion) {
-                case 1:
+                case 5:
                     // Opción para calcular ecuación de una recta
                     System.out.println("Ingrese las coordenadas de los puntos:");
                     System.out.print("x1: ");
@@ -28,7 +28,7 @@ public class Main {
 
                     calcularEcuacionRecta(x1, y1, x2, y2);
                     break;
-                case 2:
+                case 4:
                     // Opción para resolver sistema de ecuaciones lineales
                     System.out.println("Ingrese los coeficientes y términos independientes:");
                     System.out.print("A: ");
@@ -46,7 +46,7 @@ public class Main {
 
                     resolverSistemaEcuaciones(A, B, C, D, E, F);
                     break;
-                case 3:
+                case 6:
                     // Opción para salir del programa
                     System.out.println("Cerrando calculadora");
                     return;
