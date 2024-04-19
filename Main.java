@@ -219,6 +219,18 @@ public class Main {
                     operacionesAritmeticas(num1,num2);
                     break;
 
+                case 2:
+                    // Llamar a la función para resolver ecuación cuadrática
+                    System.out.println("Ingrese los coeficientes de la ecuación cuadrática (ax^2 + bx + c = 0):");
+                    System.out.print("a: ");
+                    double a = scanner.nextDouble();
+                    System.out.print("b: ");
+                    double b = scanner.nextDouble();
+                    System.out.print("c: ");
+                    double c = scanner.nextDouble();
+                    calcularRaicesCuadraticas(a, b, c);
+                    break;
+
                 case 5:
                     // Opción para calcular ecuación de una recta
                     System.out.println("Ingrese las coordenadas de los puntos:");
