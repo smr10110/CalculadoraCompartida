@@ -193,6 +193,78 @@ public class Main {
     public static double volumenCono(double radio, double altura) {
         return (Math.PI * Math.pow(radio, 2) * altura) / 3;
     }
+    public static void menuFigurasGeometricas(Scanner scanner) {
+        boolean salir = false;
+
+        while (!salir) {
+            System.out.println("Seleccione una figura geométrica:");
+            System.out.println("1. Cuadrado");
+            System.out.println("2. Rectángulo");
+            System.out.println("3. Círculo");
+            System.out.println("4. Esfera");
+            System.out.println("5. Cubo");
+            System.out.println("6. Cono");
+            System.out.println("7. Salir");
+
+            int opcionFigura = scanner.nextInt();
+
+            switch (opcionFigura) {
+                case 1:
+                    // Cuadrado
+                    System.out.print("Ingrese el lado del cuadrado: ");
+                    double ladoCuadrado = scanner.nextDouble();
+                    System.out.println("Área del cuadrado: " + areaCuadrado(ladoCuadrado));
+                    System.out.println("Perímetro del cuadrado: " + perimetroCuadrado(ladoCuadrado));
+                    break;
+                case 2:
+                    // Rectángulo
+                    System.out.print("Ingrese la base del rectángulo: ");
+                    double baseRectangulo = scanner.nextDouble();
+                    System.out.print("Ingrese la altura del rectángulo: ");
+                    double alturaRectangulo = scanner.nextDouble();
+                    System.out.println("Área del rectángulo: " + areaRectangulo(baseRectangulo, alturaRectangulo));
+                    System.out.println("Perímetro del rectángulo: " + perimetroRectangulo(baseRectangulo, alturaRectangulo));
+                    break;
+                case 3:
+                    // Círculo
+                    System.out.print("Ingrese el radio del círculo: ");
+                    double radioCirculo = scanner.nextDouble();
+                    System.out.println("Área del círculo: " + areaCirculo(radioCirculo));
+                    System.out.println("Perímetro del círculo: " + circunferenciaCirculo(radioCirculo));
+                    break;
+                case 4:
+                    // Esfera
+                    System.out.print("Ingrese el radio de la esfera: ");
+                    double radioEsfera = scanner.nextDouble();
+                    System.out.println("Área superficial de la esfera: " + areaEsfera(radioEsfera));
+                    System.out.println("Volumen de la esfera: " + volumenEsfera(radioEsfera));
+                    break;
+                case 5:
+                    // Cubo
+                    System.out.print("Ingrese la arista del cubo: ");
+                    double aristaCubo = scanner.nextDouble();
+                    System.out.println("Área superficial del cubo: " + areaCubo(aristaCubo));
+                    System.out.println("Volumen del cubo: " + volumenCubo(aristaCubo));
+                    break;
+                case 6:
+                    // Cono
+                    System.out.print("Ingrese el radio del cono: ");
+                    double radioCono = scanner.nextDouble();
+                    System.out.print("Ingrese la generatriz del cono: ");
+                    double generatrizCono = scanner.nextDouble();
+                    System.out.println("Área superficial del cono: " + areaCono(radioCono, generatrizCono));
+                    System.out.println("Volumen del cono: " + volumenCono(radioCono, generatrizCono));
+                    break;
+                case 7:
+                    // Salir
+                    salir = true;
+                    break;
+                default:
+                    System.out.println("Opción no válida.");
+                    break;
+            }
+        }
+    }
 
     public static void menu() {
 
@@ -229,6 +301,10 @@ public class Main {
                     System.out.print("c: ");
                     double c = scanner.nextDouble();
                     calcularRaicesCuadraticas(a, b, c);
+                    break;
+                case 3:
+                    // Opción para calcular figuras geométricas
+                    menuFigurasGeometricas(scanner);
                     break;
 
                 case 5:
