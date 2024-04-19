@@ -1,4 +1,60 @@
+import java.util.Scanner;
+
 public class Main {
+
+    public static void menu() {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Seleccione una opción:");
+            System.out.println("1. Calcular ecuación de una recta");
+            System.out.println("2. Resolver sistema de ecuaciones lineales");
+            System.out.println("3. Salir");
+
+            int opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    // Opción para calcular ecuación de una recta
+                    System.out.println("Ingrese las coordenadas de los puntos:");
+                    System.out.print("x1: ");
+                    double x1 = scanner.nextDouble();
+                    System.out.print("y1: ");
+                    double y1 = scanner.nextDouble();
+                    System.out.print("x2: ");
+                    double x2 = scanner.nextDouble();
+                    System.out.print("y2: ");
+                    double y2 = scanner.nextDouble();
+
+                    calcularEcuacionRecta(x1, y1, x2, y2);
+                    break;
+                case 2:
+                    // Opción para resolver sistema de ecuaciones lineales
+                    System.out.println("Ingrese los coeficientes y términos independientes:");
+                    System.out.print("A: ");
+                    double A = scanner.nextDouble();
+                    System.out.print("B: ");
+                    double B = scanner.nextDouble();
+                    System.out.print("C: ");
+                    double C = scanner.nextDouble();
+                    System.out.print("D: ");
+                    double D = scanner.nextDouble();
+                    System.out.print("E: ");
+                    double E = scanner.nextDouble();
+                    System.out.print("F: ");
+                    double F = scanner.nextDouble();
+
+                    resolverSistemaEcuaciones(A, B, C, D, E, F);
+                    break;
+                case 3:
+                    // Opción para salir del programa
+                    System.out.println("Cerrando calculadora");
+                    return;
+                default:
+                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
+            }
+        }
+    }
     public static void resolverSistemaEcuaciones(double A, double B, double C, double D, double E, double F) {
         double determinante = A * E - B * D;
 
@@ -32,23 +88,6 @@ public class Main {
 
 
     public static void main(String[] args) {
-        // Ejemplo de puntos
-        double x1 = 1.0;
-        double y1 = 3.0;
-        double x2 = 2.0;
-        double y2 = -5.0;
-
-
-        calcularEcuacionRecta(x1, y1, x2, y2);
-
-        double A = 2.0;
-        double B = 3.0;
-        double C = 5.0;
-        double D = 1.0;
-        double E = -1.0;
-        double F = 3.0;
-
-        resolverSistemaEcuaciones(A, B, C, D, E, F);
-
+        menu();
     }
 }
