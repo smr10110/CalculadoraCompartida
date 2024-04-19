@@ -14,9 +14,16 @@ public class Main {
         return a * b;
     }
 
-    // Metodo para dividir dos numeros.
     public static double dividir(double a, double b) {
-        return a / b;
+        try {
+            if (b == 0) {
+                throw new ArithmeticException("No se puede dividir por cero");
+            }
+            return a / b;
+        } catch (ArithmeticException e) {
+            System.err.println(e.getMessage());
+            return Double.NaN; //
+        }
     }
 
     // Metodo para encontrar el mayor de dos numeros.
@@ -31,7 +38,15 @@ public class Main {
 
     // Metodo para calcular la potencia de un numero elevado a otro.
     public static double potencia(double base, double exponente) {
-        return Math.pow(base, exponente);
+        try {
+            if (base == 0 && exponente == 0) {
+                throw new IllegalArgumentException("0 elevado a 0 es una indeterminacion");
+            }
+            return Math.pow(base, exponente);
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            return Double.NaN;
+        }
     }
 
     // Método para calcular un porcentaje de un número.
@@ -76,7 +91,7 @@ public class Main {
         System.out.println("Raíz 2 = " + realPart + " - " + imaginaryPart + "i");
     }
 
-    // Metodo para calcular las raices de una ecuacion cuadratica, utilizando los metodos auxiliares.
+    // Metodo para calcular las raices de una ecuacion cuadratica, utilizando los metodos auxiliares
     public static void calcularRaicesCuadraticas(double a, double b, double c) {
         double discriminante = discriminante(a, b, c);
         System.out.println(evaluarDiscriminante(discriminante));
@@ -151,7 +166,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        double a = 1, b = -8, c =16;
-        calcularRaicesCuadraticas(a, b, c);
+        System.out.println("El resultado de la potencia es " + potencia(0, 0));
     }
 }
