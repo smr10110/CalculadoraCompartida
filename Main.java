@@ -18,21 +18,18 @@ public class Main {
         return numero;
     }
     public static double leerDouble(Scanner scanner, String mensaje) {
-        double numero = 0;
-        boolean entradaValida = false;
-
-        while (!entradaValida) {
+        while (true) {
+            System.out.print(mensaje);
             try {
-                System.out.print(mensaje);
-                numero = scanner.nextDouble();
-                entradaValida = true;
-            } catch (InputMismatchException e) {
-                System.out.println("Error: Debes ingresar un número válido.");
-                scanner.next(); // Limpiar el búfer del scanner para evitar un bucle infinito
+                String input = scanner.next();
+                double num = Double.parseDouble(input);
+                return num;
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Por favor, ingrese un número válido.");
             }
         }
-        return numero;
     }
+
 
 
     // Metodo para sumar dos numeros.
@@ -246,47 +243,39 @@ public class Main {
             switch (opcionFigura) {
                 case 1:
                     // Cuadrado
-                    System.out.print("Ingrese el lado del cuadrado: ");
-                    double ladoCuadrado = scanner.nextDouble();
+                    double ladoCuadrado = leerDouble(scanner, "Ingrese el lado del cuadrado: ");
                     System.out.println("Área del cuadrado: " + areaCuadrado(ladoCuadrado));
                     System.out.println("Perímetro del cuadrado: " + perimetroCuadrado(ladoCuadrado));
                     break;
                 case 2:
                     // Rectángulo
-                    System.out.print("Ingrese la base del rectángulo: ");
-                    double baseRectangulo = scanner.nextDouble();
-                    System.out.print("Ingrese la altura del rectángulo: ");
-                    double alturaRectangulo = scanner.nextDouble();
+                    double baseRectangulo = leerDouble(scanner, "Ingrese la base del rectángulo: ");
+                    double alturaRectangulo = leerDouble(scanner, "Ingrese la altura del rectángulo: ");
                     System.out.println("Área del rectángulo: " + areaRectangulo(baseRectangulo, alturaRectangulo));
                     System.out.println("Perímetro del rectángulo: " + perimetroRectangulo(baseRectangulo, alturaRectangulo));
                     break;
                 case 3:
                     // Círculo
-                    System.out.print("Ingrese el radio del círculo: ");
-                    double radioCirculo = scanner.nextDouble();
+                    double radioCirculo = leerDouble(scanner, "Ingrese el radio del círculo: ");
                     System.out.println("Área del círculo: " + areaCirculo(radioCirculo));
                     System.out.println("Perímetro del círculo: " + circunferenciaCirculo(radioCirculo));
                     break;
                 case 4:
                     // Esfera
-                    System.out.print("Ingrese el radio de la esfera: ");
-                    double radioEsfera = scanner.nextDouble();
+                    double radioEsfera = leerDouble(scanner, "Ingrese el radio de la esfera: ");
                     System.out.println("Área superficial de la esfera: " + areaEsfera(radioEsfera));
                     System.out.println("Volumen de la esfera: " + volumenEsfera(radioEsfera));
                     break;
                 case 5:
                     // Cubo
-                    System.out.print("Ingrese la arista del cubo: ");
-                    double aristaCubo = scanner.nextDouble();
+                    double aristaCubo = leerDouble(scanner, "Ingrese la arista del cubo: ");
                     System.out.println("Área superficial del cubo: " + areaCubo(aristaCubo));
                     System.out.println("Volumen del cubo: " + volumenCubo(aristaCubo));
                     break;
                 case 6:
                     // Cono
-                    System.out.print("Ingrese el radio del cono: ");
-                    double radioCono = scanner.nextDouble();
-                    System.out.print("Ingrese la generatriz del cono: ");
-                    double generatrizCono = scanner.nextDouble();
+                    double radioCono = leerDouble(scanner, "Ingrese el radio del cono: ");
+                    double generatrizCono = leerDouble(scanner, "Ingrese la generatriz del cono: ");
                     System.out.println("Área superficial del cono: " + areaCono(radioCono, generatrizCono));
                     System.out.println("Volumen del cono: " + volumenCono(radioCono, generatrizCono));
                     break;
@@ -300,7 +289,6 @@ public class Main {
             }
         }
     }
-
     public static void menu() {
 
         Scanner scanner = new Scanner(System.in);
