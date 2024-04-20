@@ -1,5 +1,23 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Main {
+    public static int leerEntero(Scanner scanner, String mensaje) {
+        int numero = 0;
+        boolean entradaValida = false;
+
+        while (!entradaValida) {
+            try {
+                System.out.print(mensaje);
+                numero = scanner.nextInt();
+                entradaValida = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Debes ingresar un número entero.");
+                scanner.next(); // Limpiar el búfer del scanner para evitar un bucle infinito
+            }
+        }
+        return numero;
+    }
+
     // Metodo para sumar dos numeros.
     public static double sumar(double a, double b) {
         return a + b;
@@ -279,7 +297,7 @@ public class Main {
             System.out.println("5. Resolver sistema de ecuaciones lineales");
             System.out.println("6. Salir");
 
-            int opcion = scanner.nextInt();
+            int opcion = leerEntero(scanner, "Ingrese su opción: ");
 
             switch (opcion) {
                 case 1:
