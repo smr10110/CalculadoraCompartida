@@ -17,6 +17,23 @@ public class Main {
         }
         return numero;
     }
+    public static double leerDouble(Scanner scanner, String mensaje) {
+        double numero = 0;
+        boolean entradaValida = false;
+
+        while (!entradaValida) {
+            try {
+                System.out.print(mensaje);
+                numero = scanner.nextDouble();
+                entradaValida = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Debes ingresar un número válido.");
+                scanner.next(); // Limpiar el búfer del scanner para evitar un bucle infinito
+            }
+        }
+        return numero;
+    }
+
 
     // Metodo para sumar dos numeros.
     public static double sumar(double a, double b) {
