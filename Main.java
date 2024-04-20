@@ -224,7 +224,7 @@ public class Main {
             System.out.println("6. Cono");
             System.out.println("7. Salir");
 
-            int opcionFigura = scanner.nextInt();
+            int opcionFigura = leerEntero(scanner, "Ingrese su opción: ");
 
             switch (opcionFigura) {
                 case 1:
